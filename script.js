@@ -38,31 +38,6 @@ if (isIndexPage) {
     loadFilmsByGenre("western", 37);
 }
 
-
-// Charge les films d’un genre et les affiche
-/*
-async function loadFilmsByGenre(genreSlug, genreId) {
-    try {
-        const response = await fetch(
-            `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=fr-FR`,
-        );
-        const data = await response.json();
-
-        const section = document.querySelector(
-            `.genre-section[data-genre="${genreSlug}"] .film-row`,
-        );
-
-        section.innerHTML = "";
-
-        data.results.slice(0, 12).forEach((movie) => {
-            const card = createFilmCard(movie);
-            section.appendChild(card);
-        });
-    } catch (error) {
-        console.error("Erreur chargement films :", error);
-    }
-}
-*/
 async function loadFilmsByGenre(genreSlug, genreId) {
     try {
         const response = await fetch(
