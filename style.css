@@ -1,3 +1,28 @@
+@font-face {
+    font-family: "MelonPop";
+    src: url("./asset/Melon\ Pop.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "SpicySale";
+    src: url("./asset/Spicy\ Sale.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "MeatBall";
+    src: url("./asset/Super\ Meatball.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Vanilla";
+    src: url("./asset/Vanilla\ Caramel.otf") format("opentype");
+    font-weight: 500;
+}
+
+
 :root {
     --titre-color: #CCB1AB;
     --text-color: #F5EEEA;
@@ -5,6 +30,10 @@
     --bg: #4B516B;
     --bg-alt: #23243C;
     --element-bg: #9D8F9C;
+
+    --titre-font: "MeatBall", sans-serif;
+    --main-font: "Vanilla", sans-serif;
+    --date-font: "MelonPop", sans-serif;
 }
 
 
@@ -12,7 +41,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--main-font), sans-serif;
+    
 }
 
 body {
@@ -36,6 +66,7 @@ header {
 header h1 {
     font-size: 38px;
     white-space: nowrap;
+    font-family: var(--titre-font);
 }
 
 .search-bar {
@@ -94,6 +125,7 @@ main {
     font-size: 32px;
     font-weight: bold;
     margin-left: 45px;
+    font-family: var(--titre-font);
 }
 
 
@@ -115,7 +147,7 @@ main {
 }
 
 .film-card {
-    min-width: 160px;
+    min-width: 190px;
     background-color: var(--element-bg);
     color: var(--text-color);
     border-radius: 8px;
@@ -143,13 +175,19 @@ main {
 }
 
 .film-title {
-    font-size: 14px;
+    font-size: 1.3em;
     font-weight: bold;
+    font-family: var(--titre-font);
 }
 
 .film-info {
-    font-size: 12px;
+    font-size: 1.7em;
     opacity: 0.8;
+}
+
+.film-annee {
+    font-size: 1.3em;
+    font-family: var(--date-font);
 }
 
 
@@ -208,12 +246,18 @@ main {
     z-index: 4;
 }
 
+.note {
+    font-size: 1.6em;
+    font-family: var(--date-font);
+}
+
 
 .movie-title {
     text-align: center;
     font-size: 32px;
     margin: 20px 0 40px 0;
     z-index: 5;
+    font-family: var(--titre-font);
 }
 
 

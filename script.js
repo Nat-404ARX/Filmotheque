@@ -17,8 +17,6 @@ if (isIndexPage) {
 };
 
 
-
-
 // Catalogue
 
 if (isIndexPage) {
@@ -142,7 +140,11 @@ function createFilmCard(movie) {
             style="background-image:url('${IMG_BASE + movie.poster_path}')"></div>
         <div class="film-title">${movie.title}</div>
         <div class="film-annee">${movie.release_date?.slice(0, 4) || "?"}</div>
-        <div class="note">${movie.vote_average.toFixed(1)} ⭐</div>
+        <div class="note">${movie.vote_average.toFixed(1)} 
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.51056 0L11.7557 6.90983H19.0211L13.1433 11.1803L15.3884 18.0902L9.51056 13.8197L3.63271 18.0902L5.87785 11.1803L0 6.90983H7.26542L9.51056 0Z" fill="#4B516B"/>
+            </svg>
+        </div>
     `;
 
     card.addEventListener("click", () => {
@@ -187,7 +189,11 @@ function fillMovieDetail(movie) {
     document.querySelector(".poster").style.backgroundImage =
         `url('${IMG_BASE + movie.poster_path}')`;
 
-    document.querySelector(".overview p").textContent = movie.overview;
+    if (movie.overview === "") { 
+        document.querySelector(".overview p").textContent = "Pas de description pour ce film ¯\_(ツ)_/¯ ";
+    } else {
+        document.querySelector(".overview p").textContent = movie.overview;
+    }
 
     document.getElementById("movie-gender").innerHTML =
         `<span>Genre :</span> ${movie.genres.map((g) => g.name).join(", ")}`;
@@ -200,7 +206,10 @@ function fillMovieDetail(movie) {
         `<span>Date de sortie :</span> ${formatDateFR(movie.release_date)}`;
 
     document.getElementById("note").innerHTML =
-        `<span>Note :</span> ${movie.vote_average.toFixed(1)} ⭐`;
+        `<span>Note :</span> ${movie.vote_average.toFixed(1)} 
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.51056 0L11.7557 6.90983H19.0211L13.1433 11.1803L15.3884 18.0902L9.51056 13.8197L3.63271 18.0902L5.87785 11.1803L0 6.90983H7.26542L9.51056 0Z" fill="#4B516B"/>
+            </svg>`;
 
     document.getElementById("vote").innerHTML =
         `<span>Votes :</span> ${movie.vote_count}`;
@@ -247,6 +256,11 @@ function fillMovieDetail(movie) {
         case "ru":
             document.getElementById("langue").innerHTML =
                 `<span>Langue d'origine :</span> Russe`;
+                break;
+
+        case "zh":
+            document.getElementById("langue").innerHTML =
+                `<span>Langue d'origine :</span> Chinois`;
                 break;
 
         default: 
