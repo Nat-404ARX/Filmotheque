@@ -190,7 +190,7 @@ function fillMovieDetail(movie) {
         `url('${IMG_BASE + movie.poster_path}')`;
 
     if (movie.overview === "") { 
-        document.querySelector(".overview p").textContent = "Pas de description pour ce film ¯\_(ツ)_/¯ ";
+        document.querySelector(".overview p").textContent = `Pas de description pour ce film ¯\_(ツ)_/¯ `;
     } else {
         document.querySelector(".overview p").textContent = movie.overview;
     }
